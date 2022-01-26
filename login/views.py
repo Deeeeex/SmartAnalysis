@@ -8,8 +8,9 @@ def index(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        majority = request.POST.get('majority')
         #数据保存到数据库
-        models.UserInfo.objects.create(user=username, pwd=password)
+        models.UserInfo.objects.create(user=username, pwd=password, majr=majority)
 
     #数据库读取数据
     user_list = models.UserInfo.objects.all()

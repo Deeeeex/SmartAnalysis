@@ -13,6 +13,7 @@
         <!--加入这行 -->
         用户名：<input type="text" name="username" /><br />
         密码：<input type="password" name="password" /><br />
+        专业：<input type="text" name="majority" /><br />
         <input type="submit" value="提交" />
     </form>
 
@@ -21,12 +22,14 @@
         <thead>
             <tr>用户名</tr>
             <tr>密码</tr>
+            <tr>专业</tr>
         </thead>
         <tbody>
             {% for item in data %}
             <tr>
                 <td>{{ item.user }}</td>
                 <td>{{ item.pwd }}</td>
+                <td>{{ item.majr }}</td>
             </tr>
             {% endfor %}
         </tbody>
