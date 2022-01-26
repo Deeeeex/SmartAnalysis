@@ -4,5 +4,7 @@ from django.db import models
 
 
 class UserInfo(models.Model):
-    user = models.CharField(max_length=32)
-    pwd = models.CharField(max_length=32)
+    user = models.CharField(max_length=32,null=True)
+    pwd = models.CharField(max_length=32,null=True)
+    majr = models.CharField(max_length=32,null=True)
+    
