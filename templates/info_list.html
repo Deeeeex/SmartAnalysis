@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+
+<body>
+    <h1>用户展示：</h1>
+    <table border="1">
+        <thead>
+            <tr>用户名</tr>
+            <tr>密码</tr>
+            <tr>专业</tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.user }}</td>
+                <td>{{ item.pwd }}</td>
+                <td>{{ item.majr }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+
+<body>
+    <h1>用户输入：</h1>
+    <form action="/register/" method="post">
+        {% csrf_token %}
+        <!--加入这行 -->
+        用户名：<input type="text" name="username" /><br />
+        密码：<input type="password" name="password" /><br />
+        专业：<input type="text" name="majority" /><br />
+        <input type="submit" value="提交" />
+    </form>
+    <p>{{ rlt }}</p>
+</body>
+
+</html>
