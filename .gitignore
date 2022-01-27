@@ -1,1 +1,3 @@
-**/__pycache__
+$ cat .gitignore
+/.idea/
+*/__pycache__
