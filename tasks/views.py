@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Task
+from django.contrib.auth.models import User
 from .forms import TaskForm
 
 # Create a task
@@ -54,3 +55,10 @@ def task_delete(request, pk):
     task_obj = get_object_or_404(Task, pk=pk)
     task_obj.delete()  # 删除然后跳转
     return redirect(reverse("tasks:task_list"))
+
+def dashboard(request):
+    user_count = User.objects.count()
+    task_count = Task.objects.count()
+
+    context = {'user_count': user_count, 'task_count': task_count}
+    return render(request, 'tasks/dashboard.html', context)

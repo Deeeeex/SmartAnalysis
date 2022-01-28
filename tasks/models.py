@@ -11,6 +11,10 @@ class Task(models.Model):
     status = models.CharField(
         verbose_name="Task status", max_length=1, choices=Status.choices)
 
+    class Meta:
+        verbose_name = "任务"
+        verbose_name_plural = "任务"
+
     def __str__(self):
         return self.name
     

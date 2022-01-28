@@ -17,4 +17,7 @@ urlpatterns = [
 
     # Delete a task
     re_path(r'^(?P<pk>\d+)/delete/$', views.task_delete, name='task_delete'),
+
+    #重写admin页面的控制面板
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]
