@@ -10,7 +10,7 @@ urlpatterns = [
     path('', views.task_list, name='task_list'),
 
     # Retrieve single task object
-    re_path(r'^(?P<pk>\d+)/$', views.task_detail, name='task_detail'),
+    re_path(r'^(?P<pk>\d+)/$', views.task_detail, name='task_detail'),   #url映射 正则表达式
 
     # Update a task
     re_path(r'^(?P<pk>\d+)/update/$', views.task_update, name='task_update'),
