@@ -21,6 +21,7 @@ from . import search
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('login.urls')),  # 加入login对应urls
+    path('tasks/',include('tasks.urls')),  #加入tasks对应urls
     path('search-form/', search.search_form),
     path('search/', search.search),
 ]
