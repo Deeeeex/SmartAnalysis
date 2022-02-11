@@ -1,0 +1,31 @@
+{% extends 'draw/index.html' %}
+{% block title %}上传的表格打印{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        {% for column in data_head %}
+                        <th scope="col">{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data_values %}
+                    <tr>
+                        {% for v in row %}
+                        <td>{{ v }}</td>
+                        {% endfor %}
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
