@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MonkeyTest</title>
+</head>
+
+<body>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Monkey 测试</h1>
+        请输入测试执行人：<input type="text" name="peoples">
+        请输入测试版本：<input type="text" name="versions"><br>
+        请上传monkey日志文件<input type="file" name="files"><br>
+        <input type="submit" value="上传">
+        <br>
+        <b><small>测试执行结果：</small></b>
+        <hr>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>测试执行人</td>
+                <td>测试版本号</td>
+                <td>ANR异常数</td>
+                <td>Crash异常数</td>
+                <td>Exception异常数</td>
+                <td>是否执行完</td>
+                <td>统计合计</td>
+                <td>备注</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in data %}
+            <tr>
+                <td>{{ result.id}}</td>
+                <td>{{ result.name }}</td>
+                <td>{{ result.version_num }}</td>
+                <td>{{ result.anr_num}}</td>
+                <td>{{ result.crash_num }}</td>
+                <td>{{ result.exception_num }}</td>
+                <td>{{ result.monkey_is_finish }}</td>
+                <td>{{ result.bug_num }}</td>
+                <td>{{ result.remark}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

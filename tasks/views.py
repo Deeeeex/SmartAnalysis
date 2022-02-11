@@ -1,12 +1,15 @@
+from django.conf import Settings, settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Task
 from django.contrib.auth.models import User
 from .forms import TaskForm
+from django.http import HttpResponse
+from .num_count import _out_log
+#from testdj import settings
+import json
 
 # Create a task
-
-
 def task_create(request):
     # 如果用户通过POST提交，通过request.POST获取提交数据
     if request.method == "POST":
@@ -62,3 +65,17 @@ def dashboard(request):
 
     context = {'user_count': user_count, 'task_count': task_count}
     return render(request, 'tasks/dashboard.html', context)
+
+def upload(request):
+    if request.method == "POST":
+        obj = request.FILES.get("test.shlian")
+        import os
+        f=open(os.path.join(settings.MEDIA_ROOT,"upload",obj.name),'wb')
+        for chunk in obj.chunks():
+            f.write(chunk)
+        f.close()
+        result={"result":"OK","file_name":obj.name,"media_root":os.path.join(settings.MEDIA_ROOT,"upload")}
+        #result={"result":"OK"}
+        return HttpResponse(json.dumps(result))
+    else:
+        return render(request, "tasks/upload_file.html")

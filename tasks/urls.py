@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.urls import path,re_path
 from . import views
+from testdj import settings
+from django.views.static import serve
 
 app_name = "tasks"
 urlpatterns = [
@@ -20,4 +23,10 @@ urlpatterns = [
 
     #重写admin页面的控制面板
     path('dashboard/', views.dashboard, name='dashboard'),
+
+    #上传一个文件
+    path('upload/', views.upload,name="upload"),
+    
+    #查看自己上传过的文件（理论上也可以下载）
+    re_path(r'media/(?P<path>.*)', serve,{'document_root': settings.MEDIA_ROOT}),
 ]
