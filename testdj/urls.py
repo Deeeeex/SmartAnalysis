@@ -26,4 +26,5 @@ urlpatterns = [
     path('tasks/', include('tasks.urls')),  #加入tasks对应urls
     path('search-form/', search.search_form),
     path('search/', search.search),
+    path('draw/', include('draw.urls')),  # 加入draw对应urls
 ]
