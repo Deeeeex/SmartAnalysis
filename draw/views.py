@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.conf import settings
 import os
 import pandas as pd
+#from .func.ts_ARIMA import imd_3,imd_4
 
 def homepage(request):
     context = {
@@ -31,17 +32,12 @@ def file_print(request):
         # 获取列名和值
         df1_head = df.columns.values.tolist()
         df1_values = df.values.tolist()
+        imd_list = draw_pic()
         # 返回列名和值的列表
         context = {
             'data_head': df1_head,
             'data_values': df1_values,
+            'img_list': imd_list,
         }
     return render(request, 'draw/file_print.html', context)
 
-
-def draw(request):
-    imd = draw_pic()
-    context = {
-        'img': imd,
-    }
-    return render(request, 'draw/draw.html', context)
