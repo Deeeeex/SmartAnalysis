@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.conf import settings
 import os
 import pandas as pd
-#from .func.ts_ARIMA import imd_3,imd_4
+import numpy as np
 
 def homepage(request):
     context = {
@@ -27,16 +27,20 @@ def file_print(request):
         with open(path, 'wb') as f1:
             for i in file_obj.chunks():
                 f1.write(i)
+
         # 读取上传的文件(内存中)
-        df = pd.read_excel(file_obj)
+        df = pd.read_csv('draw/static/file_upload/'+file_obj.name)
         # 获取列名和值
-        df1_head = df.columns.values.tolist()
-        df1_values = df.values.tolist()
-        imd_list = draw_pic()
+        header = df.columns.to_list()
+        dfa=np.array(df)
+        rows=dfa.tolist()
+        # df1_head = df.columns.values.tolist()
+        # df1_values = df.values.tolist()
+        imd_list = draw_pic(file_obj.name)
         # 返回列名和值的列表
         context = {
-            'data_head': df1_head,
-            'data_values': df1_values,
+            'data_head':header,
+            'data_values': rows,
             'img_list': imd_list,
         }
     return render(request, 'draw/file_print.html', context)
