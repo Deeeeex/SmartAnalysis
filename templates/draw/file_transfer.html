@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-
-<body>
-    <h4>{{ error_message }}</h4>
-    <form action="{% url 'fileprint'%}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <p><input type="file" name="up_file"></p>
-        <input type="submit" name='check'>
-    </form>
-</body>
-
-</html>
+{% extends 'draw/index.html' %}
+{% block title %}传输文件{% endblock %}
+{% block content %}
+<h4>{{ error_message }}</h4>
+<form action="{% url 'fileprint'%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><input type="file" name="up_file"></p>
+    <input type="submit" name='check'>
+</form>
+{% endblock %}

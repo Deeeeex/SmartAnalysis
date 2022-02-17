@@ -1,0 +1,22 @@
+body
+{
+    font-size:75%;
+    font-family:verdana,arial,'sans serif';
+    /*background-image:url('gradient.png');*/
+    background-repeat:repeat-x;
+    background-color:#FFFFF0;
+    color:#000080;
+    margin:70px;
+}
+
+h1 {font-size:200%;}
+h2 {font-size:140%;}
+h3 {font-size:110%;}
+
+th {background-color:#ADD8E6;}
+
+ul {list-style:circle;}
+ol {list-style:upper-roman;}
+
+a:link {color:#000080;}
+a:hover {color:red;}
