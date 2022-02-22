@@ -27,7 +27,7 @@ def file_print(request):
         with open(path, 'wb') as f1:
             for i in file_obj.chunks():
                 f1.write(i)
-
+        #待改进：支持读入csv,xls,xlsx等表格文件或者导入数据库
         # 读取上传的文件(内存中)
         df = pd.read_csv('draw/static/file_upload/'+file_obj.name)
         # 获取列名和值

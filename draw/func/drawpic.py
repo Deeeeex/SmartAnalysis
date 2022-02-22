@@ -8,7 +8,6 @@ from statsmodels.graphics.api import qqplot
 import statsmodels.tsa.api as smt
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
-#from .ts_ARIMA import imd_2
 import itertools
 import pandas as pd
 import matplotlib.pylab as plt
@@ -43,7 +42,7 @@ def draw_pic(file_name):
     imd_1 = "data:image/png;base64," + ims
     
     ts = pd.Series(np.array(milkproduction['production'].astype('float64')),
-                   index=pd.period_range('196201', '197512', freq='M'))
+                   index=pd.period_range('1962-01', '1975-12', freq='M'))
 
 
     ts.head()
