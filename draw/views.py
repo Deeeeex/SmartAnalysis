@@ -17,8 +17,13 @@ def filetransfer(request):
 
 def file_print(request):
     if request.method == "POST":
-        #获取上传的文件
+        #获取上传的文件及其相关信息
         file_obj = request.FILES.get("up_file")
+        # starttime = request.POST.get("starttime", None)
+        # endtime = request.POST.get("endtime", None)
+        # sel_prctise = request.POST.get("sel_prctise", None)
+        # object = request.POST.get("object", None)
+        # model = request.POST.get("model", None)
         #获取当前项目的路径
         base = str(settings.BASE_DIR)
         # 文件本地存储地址

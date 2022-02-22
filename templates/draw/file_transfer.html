@@ -2,9 +2,40 @@
 {% block title %}传输文件{% endblock %}
 {% block content %}
 <h4>{{ error_message }}</h4>
-<form action="{% url 'fileprint'%}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p><input type="file" name="up_file"></p>
-    <input type="submit" name='check'>
-</form>
+
+<div id="information" style=" float: left;">
+    <!-- <form action="{% url 'fileprint'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p><input type="file" name="up_file"></p>
+        <input type="submit" name='check'>
+    </form> -->
+    <form action="{% url 'fileprint'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        选择文件：<input type="file" name="up_file"><br><br>
+        选择时间序列：<br>
+        开始时间：<input type="date" name="starttime"><br>
+        结束时间：<input type="date" name="endtime"><br><br>
+        训练集占比：<select name="sel_prctise">
+            <option value="1.0">1.0</option>
+            <option value="0.9">0.9</option>
+            <option value="0.8">0.8</option>
+            <option value="0.7">0.7</option>
+            <option value="0.6">0.6</option>
+            <option value="0.5">0.5</option>
+            <option value="0.4">0.4</option>
+            <option value="0.3">0.3</option>
+            <option value="0.2">0.2</option>
+            <option value="0.1">0.1</option>
+            <option value="0" selected>0</option>
+        </select><br><br>
+        选择预测目标：<input type="text" name="object"><br><br>
+        选择预测模型：<br>
+        <select name="model" id="sel_model">
+            <option value="ANN">ANN</option>
+            <option value="ARMN">ARMA</option>
+        </select><br><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+</div>
 {% endblock %}
