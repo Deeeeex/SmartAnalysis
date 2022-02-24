@@ -5,18 +5,37 @@
     <meta charset="UTF-8">
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../static/css/draw/index.css">
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
-    <div class='container'>
-        {% include 'draw/navbar.html' %}
-    </div>
-    {% block content %}
+    <div id="Container">
 
-    {% endblock content %}
+        <div style=" text-align: left;margin-left: 0vmax; margin-left: 20vmax;">
+            <h1 style="color: rgb(8, 75, 221);">SmartAnalysis</h1>
+        </div>
+
+        <div id="second">
+
+            <div id="introduction" style="float: left;">
+                <h2>预测常用算法简介</h2><br>
+                <h3>ARMA模型</h3>
+                <p>ARMA模型(auto regressive moving average
+                    model)自回归滑动平均模型，是研究平稳随机过程有理谱的典型方法，可以用于处理分离正弦信号频率，多应用于机械零件比如齿轮、轴承故障诊断和分析。</p><br>
+                <h3>ANN模型</h3>
+                <p>人工神经网络（Artificial Neural Network，简称ANN
+                    ），以数学模型模拟神经元活动，在处理模糊数据、随机性数据、非线性数据方面具有明显优势，对规模大、结构复杂、信息不明确的系统尤为适用。
+                </p>
+            </div>
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+
+    </div>
+    <!-- <div style="width: 60vmax; text-align: center;"><p>北京航空航天大学 buaa.edu.cn</p></div> -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

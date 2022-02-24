@@ -1,4 +1,4 @@
-{% extends 'draw/index.html' %}
+{% extends 'draw/base.html' %}
 {% block title %}分析结果{% endblock %}
 {% block content %}
 <div class="container">
@@ -29,8 +29,22 @@
     </div>
 </div>
 <div class="container">
-    {% for img in img_list %}
+    <img src="{{ img_list.0 }}">
+    <p>划分训练集与测试集</p>
+    <img src="{{ img_list.1 }}">
+    <p>The ANN score on the Train set is:{{ info_list.0 }}</p>
+    <p>The ANN score on the Test set is:{{ info_list.1 }}</p>
+    <p>ANN效果图如下</p>
+    <img src="{{ img_list.2 }}">
+    <p>ANN's mse: {{ info_list.4 }}</p>
+    <p>The LSTM score on the Test set is:{{ info_list.2 }}</p>
+    <p>The LSTM score on the Test set is:{{ info_list.3 }}</p>
+    <p>LSTM效果图如下</p>
+    <img src="{{ img_list.3 }}">
+    <p>LSTM's mse: {{ info_list.5 }}</p>
+    <!-- {% for img in img_list %}
     <img src="{{ img }}">
-    {% endfor %}
+    {% endfor %} -->
+
 </div>
 {% endblock %}
