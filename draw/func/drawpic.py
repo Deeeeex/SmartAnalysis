@@ -21,7 +21,7 @@ os.getcwd()
 #from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 
-def draw_pic(file_name):
+def draw_ARIMA(file_name, starttime, endtime, object):
     #决定画布内容
     #x = np.linspace(0, 15, 10)
     #y = x * 2
@@ -41,10 +41,10 @@ def draw_pic(file_name):
     ims = imb.decode()
     imd_1 = "data:image/png;base64," + ims
     
-    ts = pd.Series(np.array(milkproduction['production'].astype('float64')),
-                   index=pd.period_range('1962-01', '1975-12', freq='M'))
+    ts = pd.Series(np.array(milkproduction[object].astype('float64')),
+                   index=pd.period_range(starttime, endtime, freq='M'))
 
-
+    #1962-01,1975-12
     ts.head()
 
 
