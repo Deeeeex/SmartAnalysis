@@ -43,7 +43,9 @@ def file_print(request):
         # df1_head = df.columns.values.tolist()
         # df1_values = df.values.tolist()
         if model=='ARIMA':
-            imd_list = draw_ARIMA(file_obj.name, starttime, endtime, sel_prctise, object)
+            ret_list = draw_ARIMA(file_obj.name, starttime, endtime, sel_prctise, object)
+            imd_list = ret_list[1]
+            info_list = ret_list[0]
         elif model=='ANN_LSTM':
             ret_list = draw_ANN_LSTM(file_obj.name, starttime, endtime, sel_prctise, object)
             imd_list=ret_list[1]
@@ -55,5 +57,7 @@ def file_print(request):
             'info_list':info_list,
             'img_list':imd_list,
         }
-    return render(request, 'draw/file_print.html', context)
-
+    if model=='ANN_LSTM':
+        return render(request, 'draw/file_print.html', context)
+    elif model=='ARIMA':
+        return render(request, 'draw/file_print_ARIMA.html', context)
