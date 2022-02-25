@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.urls import path,re_path
 from . import views
-from testdj import settings
+from SmartAnalysis import settings
 from django.views.static import serve
 
 app_name = "tasks"

@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'testdj.urls'
+ROOT_URLCONF = 'SmartAnalysis.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'testdj.wsgi.application'
+WSGI_APPLICATION = 'SmartAnalysis.wsgi.application'
 
 
 # Database
