@@ -67,18 +67,10 @@ def draw_ARIMA(file_name, starttime, endtime, sel_prctise, object):
                      suppress_warnings=True, error_action="ignore", max_p=6,
                      max_order=None, trace=True)
     print(auto.order)
-
-
     model = auto  # seeded from the model we've already fit
-
-
     def forecast_one_step():
         fc, conf_int = model.predict(n_periods=1, return_conf_int=True)
-        return (
-            fc.tolist()[0],
-            np.asarray(conf_int).tolist()[0])
-
-
+        return (fc.tolist()[0],np.asarray(conf_int).tolist()[0])
     forecasts = []
     confidence_intervals = []
 
